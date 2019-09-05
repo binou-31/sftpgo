@@ -1,3 +1,18 @@
+--
+-- Create a default database
+--
+--- utf8 must be set to allow column with varchar(255)
+CREATE DATABASE sftpgo DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+--
+-- Default User
+--
+CREATE USER `sftpuser` identified by 'sftppassword';
+GRANT ALL privileges ON `sftpgo`.* TO 'sftpuser'@'%';
+FLUSH PRIVILEGES;
+
+use sftpgo
+
 BEGIN;
 --
 -- Create model User
